@@ -51,10 +51,14 @@ class _HomeScreenState extends State<HomeScreen> {
     final result = await Navigator.of(context).push<int>(
       MaterialPageRoute(
         builder: (BuildContext context) {
-          return SettingsScreen();
+          return SettingsScreen(maxNumber: maxNumber,);
         },
       ),
     );
+
+    setState(() {
+      if(result!=null) maxNumber = result; // int? 타입.
+    });
   }
 
   void onRandomGenerater() {
