@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:random_number_create/Component/number_row.dart';
 import 'package:random_number_create/constant/color.dart';
 import 'package:random_number_create/screen/settings_screen.dart';
 
@@ -122,19 +123,7 @@ class _Body extends StatelessWidget {
             .map(
               (x) => Padding(
                 padding: EdgeInsets.only(bottom: x.key == 2 ? 0 : 2),
-                child: Row(
-                  children: x.value
-                      .toString()
-                      .split('')
-                      .map(
-                        (y) => Image.asset(
-                          'asset/img/$y.png',
-                          width: 60,
-                          height: 70,
-                        ),
-                      )
-                      .toList(),
-                ),
+                child: NumberRow(number: x.value),
               ),
             )
             .toList(),
